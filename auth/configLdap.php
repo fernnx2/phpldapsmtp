@@ -8,4 +8,4 @@ $config['baseSearch'] = 'ou=users,dc=paneschucos,dc=occ,dc=ues,dc=edu,dc=sv';
 $config['columnaLdap'] = 'mail';
 ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3);
 
-<?
+?>

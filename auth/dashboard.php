@@ -15,6 +15,10 @@ unset($_SESSION['config']);
 
 if(isset($_SESSION['user']) && isset($_SESSION['password'])){
  	$ldapconn = ldap_connect($_SESSION['config']['urlLdap']) or die("Could not connect to LDAP server.");
+	ldap_set_option($ldapconn, LDAP_OPT_PROTOCOL_VERSION, 3);
+	  $ldapbind = ldap_bind($ldapconn, $_SESSION['config']['usernameConsultaLdap'], $_SESSION['config']['passwordConsultaLdap']) or 
+die("<h2>Error authenticate  :".ldap_error($ldapconn)."</h2>"."</br> <a class='btn waves-effect waves-light s-50' href='../index.php'>Back to Login</a>");
+
 	 $search = ldap_search($ldapconn, $_SESSION['config']['baseSearch'],"uid=*") or die("Error in search query: " . ldap_error($ldapconn));
 
         //validamos busqueda
@@ -81,7 +85,7 @@ else {
         </div>
 		<div class="ed-container">
                  <div class="ed-item"><label>Password</label></div>
-                <div class="ed-item"><input type="text" placeholder="password" name="password" required="true"/></div>
+                <div class="ed-item"><input type="password" placeholder="password" name="password" required="true"/></div>
         </div>
 	 <div class="ed-container">
                 <div class="ed-item"><button class="btn waves-effect waves-light s-100" type="submit" name="action">Registrar</button></div>

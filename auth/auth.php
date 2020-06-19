@@ -5,8 +5,8 @@ session_start();
 function auth($user,$password,$type){
 
 $config['version'] = '3.0';
-$config['urlLdap'] = 'ldap://URLREAD';
-$config['urlLdapWrite'] = 'ldap://URLWRITE';
+$config['urlLdap'] = 'ldap://25.16.250.146:389';
+$config['urlLdapWrite'] = 'ldap://25.16.250.146:389';
 $config['baseLdap'] = 'dc=paneschucos,dc=occ,dc=ues,dc=edu,dc=sv';
 $config['usernameConsultaLdap'] = 'cn='.$user.',dc=paneschucos,dc=occ,dc=ues,dc=edu,dc=sv';
 $config['passwordConsultaLdap'] = $password;
